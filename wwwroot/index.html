@@ -67,7 +67,6 @@
     <!-- importing app scripts (load order is important) -->
     <script type="text/javascript" src="./b2cconfig.js"></script>
     <script type="text/javascript" src="./b2cauth.js"></script>
-    <script type="text/javascript" src="./ui.js"></script>
     <script>
       console.log("index.html loads...")
       function signIn() {
@@ -82,6 +81,28 @@
         signoutResetUI();
       }
 
+      function showWelcomeMessage(account) {
+          // Reconfiguring DOM elements
+          document.getElementById("card-div").classList.remove('d-none');
+          document.getElementById("welcomeMessage").innerHTML = `Welcome ${account.name}`;
+          document.getElementById("signIn").classList.add('d-none');
+          document.getElementById("popup-div").classList.add('d-none');
+          document.getElementById('signOut').classList.remove('d-none');
+      }
+      function signoutResetUI() {
+
+        // Reconfiguring DOM elements
+        document.getElementById("card-div").classList.add('d-none');
+        document.getElementById("welcomeMessage").innerHTML = "";
+        document.getElementById("signIn").classList.remove('d-none');
+        document.getElementById("popup-div").classList.remove('d-none');
+        document.getElementById('signOut').classList.add('d-none');
+      }
+
+      function updateUI(data, endpoint) {
+        console.log(endpoint + ' responded at: ' + new Date().toString());
+        document.getElementById("responseData").innerHTML = JSON.stringify(data);
+      }
       // this for the redirect login
       if (myMSALObj.getAccount()) {
         console.log(myMSALObj.getAccount());
