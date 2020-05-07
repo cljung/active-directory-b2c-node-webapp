@@ -1,0 +1,32 @@
+{
+  "name": "aa2b2c-static-webserver",
+  "license": "MIT",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.12.3",
+    "morgan": "^1.5.2",
+    "path": "^0.11.14"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "description": "MSAL.JS JavaScript SPA webapp for B2C",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cljung/aa2b2c-static-webserver.git"
+  },
+  "keywords": [
+    "ms-identity",
+    "azure-ad",
+    "javascript",
+    "spa",
+    "node.js",
+    "msal.js"
+  ],
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/cljung/aa2b2c-static-webserver/issues"
+  },
+  "homepage": "https://github.com/cljung/aa2b2c-static-webserver#readme"
+}
