@@ -32,6 +32,7 @@
         };
 
         let accessToken;
+        
         myMSALObj.handleRedirectCallback(authRedirectCallBack);
 
         function authRedirectCallBack(error, response) {
@@ -169,7 +170,7 @@
             fetch(endpoint, options)
               .then(response => response.json())
               .then(response => callback(response, endpoint))
-              .catch(error => console.log(error))
+              .catch(error => callback(error, endpoint))
           }
                     
         console.log('init MSAL - end');

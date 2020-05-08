@@ -37,7 +37,7 @@
         <div id="profile-div"></div>
         <br>
         <br>
-        <button class="btn btn-primary d-none" id="seeProfile" onclick="seeProfile()">See Profile</button>
+        <button class="btn btn-primary" id="viewToken" onclick="viewToken()">View Token</button>
         <br>
         <br>
         <button class="btn btn-primary" id="callApi" onclick="callApi()">Call API</button>
@@ -101,7 +101,16 @@
 
       function updateUI(data, endpoint) {
         console.log(endpoint + ' responded at: ' + new Date().toString());
-        document.getElementById("responseData").innerHTML = JSON.stringify(data);
+        console.log(data);
+        try {
+          document.getElementById("responseData").innerHTML = JSON.stringify(data);
+        } catch {
+          document.getElementById("responseData").innerHTML = data;
+        }
+      }
+
+      function viewToken() {
+        document.getElementById("responseData").innerHTML = JSON.stringify(myMSALObj.getAccount());
       }
       // this for the redirect login
       if (myMSALObj.getAccount()) {
